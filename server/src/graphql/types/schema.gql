@@ -1,5 +1,3 @@
-scalar JSON
-
 type Query {
     # Empty field obligatory
     _empty: String
