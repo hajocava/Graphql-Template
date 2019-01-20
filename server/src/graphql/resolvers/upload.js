@@ -1,6 +1,5 @@
 import { GraphQLUpload } from 'graphql-upload'
-import { processUpload } from '../../classes/Upload'
-import { getUploads } from '../../classes/Upload'
+import { processUpload, getUploads } from '../../classes/Upload'
 import promisesAll from 'promises-all'
 
 export default {
