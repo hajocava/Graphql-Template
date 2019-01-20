@@ -1,0 +1,26 @@
+type User {
+    id: ID
+    name: String
+    email: String
+    password: String
+    role: String
+    status: Boolean
+}
+
+input UserInput {
+    name: String!
+    email: String!
+    password: String
+    role: String!
+}
+
+extend type Query {
+    getUsers(since: Int, limit: Int): [User]
+    getUser(id: ID): User
+}
+
+extend type Mutation {
+    createUser(input: UserInput!): Response
+    updateUser(id: ID!, input: UserInput!): Response
+    deleteUser(id: ID!): Response
+}
