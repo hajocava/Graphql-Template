@@ -1,5 +1,3 @@
-scalar JSON
-
 type Response {
     ok: Boolean!
     message: String

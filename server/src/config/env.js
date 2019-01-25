@@ -1,4 +1,4 @@
-process.env.PORT = process.env.PORT || 4000 // Port Koajs
+process.env.PORT = process.env.PORT || 4000 // Port express server
 process.env.EXPTOKEN = "3d" // Time live valid tokens 3 days
 process.env.SEED = process.env.SEED || 'No, I am your father' // Seed SECRET encrypt token
 

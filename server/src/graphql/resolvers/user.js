@@ -1,4 +1,4 @@
-import { isAuth } from '../../middleware/permissions';
+import { isAuth } from '../../middleware/permissions'; // Apply Middleware for resolvers
 import User from '../../classes/User';
 const user = new User();
 
