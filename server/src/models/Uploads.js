@@ -17,4 +17,4 @@ let uploadSchema =  new Schema({
     }
 });
 
-module.exports =  moongoose.model('uploads', uploadSchema);
+export default moongoose.model('uploads', uploadSchema);

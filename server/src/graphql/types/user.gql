@@ -1,9 +1,14 @@
+enum Roles {
+    ADMIN
+    USER
+}
+
 type User {
     id: ID
     name: String
     email: String
     password: String
-    role: String
+    role: Roles
     status: Boolean
 }
 
@@ -11,7 +16,7 @@ input UserInput {
     name: String!
     email: String!
     password: String
-    role: String!
+    role: Roles!
 }
 
 extend type Query {

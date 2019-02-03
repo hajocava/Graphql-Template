@@ -1,4 +1,5 @@
-process.env.PORT = process.env.PORT || 4000 // Port express server
+process.env.PORT = process.env.PORT || 4000 // Port express
+
 process.env.EXPTOKEN = "3d" // Time live valid tokens 3 days
 process.env.SEED = process.env.SEED || 'No, I am your father' // Seed SECRET encrypt token
 
@@ -13,4 +14,4 @@ process.env.DBPORT = process.env.DBPORT || 27017;
 process.env.URI = `mongodb://${process.env.DBHOST}:${process.env.DBPORT}/${process.env.DBNAME}`;
 
 // For production
-// process.env.URI = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}:${process.env.DBPORT}/${process.env.DBNAME}`; 
+// process.env.URI = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}:${process.env.DBPORT}/${process.env.DBNAME}`;

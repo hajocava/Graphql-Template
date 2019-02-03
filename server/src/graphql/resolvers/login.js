@@ -1,7 +1,30 @@
-import { login } from '../../middleware/auth';
+import bcrypt from 'bcrypt';
+import { getToken } from '../../config/middleware/auth';
 
 export default {
     Mutation: {
-        login: (root, { email, password }) => login(email, password)
+        async login(root, { email, password }, { models: { user } }) {
+            try {
+                let User = await user.findOne({ email }, 'name password role');
+
+                if (User && bcrypt.compareSync(password, User.password)) {
+                    return {
+                        ok: true,
+                        message: 'Authenticated',
+                        token: getToken({ user: User.id, role: User.role })
+                    };
+
+                } else return {
+                    ok: false,
+                    message: 'Email o password incorrectos'
+                };
+
+            } catch (err) {
+                return {
+                    ok: false,
+                    message: err.message
+                };
+            }
+        }
     }
 };

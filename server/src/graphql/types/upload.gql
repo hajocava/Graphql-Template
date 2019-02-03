@@ -6,7 +6,7 @@ type File {
 }
 
 type Query {
-    uploads: [File]
+    getUploads: [File]
 }
 
 type Mutation {

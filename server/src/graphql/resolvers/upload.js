@@ -1,23 +1,26 @@
-import { GraphQLUpload } from 'graphql-upload'
-import { processUpload, getUploads } from '../../classes/Upload'
 import promisesAll from 'promises-all'
 
 export default {
-    Upload: GraphQLUpload,    
-    
     Query: {
-      uploads: () => getUploads()
+        async getUploads(root, {}, { models }) {
+            const { uploads } = models;
+
+            try { return await uploads.find({}) } catch (err) { return err }
+        }
     },
 
     Mutation: {
-      singleUpload: (obj, { file }) => processUpload(file),
-      async multipleUpload(obj, { files }) {
-        const { resolve, reject } = await promisesAll.all(files.map(processUpload))
+        singleUpload(obj, { file }, { utils: { processUpload } }) {
+            return processUpload(file);
+        },
 
-        if (reject.length)
-        reject.forEach(({ name, message }) => console.error(`${name}: ${message}`))
+        async multipleUpload(obj, { files }, { utils: { processUpload }  }) {
+            const { resolve, reject } = await promisesAll.all(files.map(processUpload))
 
-        return resolve
-      }
+            if (reject.length)
+                reject.forEach(({ name, message }) => console.error(`${name}: ${message}`))
+
+            return resolve
+        }
     }
 };

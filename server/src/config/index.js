@@ -1,20 +1,17 @@
 import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
-import { schema } from '../graphql'
-import { checkToken } from '../middleware/auth'
-import mongoose from 'mongoose'
+import mongo from 'mongoose'
+import { checkToken } from './middleware/auth'
+import { server } from './apollo'
 import './env' // Environment Variables
 
 const app = express();
-const server = new ApolloServer({ schema, context: ({req}) => ({ user: req.user }) })
-
 
 app.use(checkToken) // Middleware for validate tokens
 server.applyMiddleware({ app })
 
-const options = { useNewUrlParser: true,useCreateIndex: true }
+const options = { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false }
 
-mongoose.connect(process.env.URI, options).then(() => {
+mongo.connect(process.env.URI, options).then(() => {
     // If connected, then start server
     app.listen(process.env.PORT, () => {
         console.log('Server on port', process.env.PORT);
