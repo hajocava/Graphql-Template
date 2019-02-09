@@ -14,7 +14,7 @@ export const checkToken = (req, res, next) => {
             const { user, role } = jwt.verify(token, process.env.SEED);
 
             // Si se verifico bien, entonces creamos un nuevo token con el mismo idUser
-            const newToken = getToken({ user });
+            const newToken = getToken({ user, role });
 
             // Agregamos a nuestros headers (backend) el id del usuario logeado
             req.user = user;

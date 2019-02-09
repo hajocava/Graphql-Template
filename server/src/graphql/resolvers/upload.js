@@ -2,9 +2,7 @@ import promisesAll from 'promises-all'
 
 export default {
     Query: {
-        async getUploads(root, {}, { models }) {
-            const { uploads } = models;
-
+        async getUploads(root, {}, { models: { uploads } }) {
             try { return await uploads.find({}) } catch (err) { return err }
         }
     },
