@@ -16,7 +16,7 @@ export default {
 
                 } else return {
                     ok: false,
-                    message: 'Email o password incorrectos'
+                    message: 'Incorrect email or password'
                 };
 
             } catch (err) {

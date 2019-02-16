@@ -1,8 +1,8 @@
-import { createResolver } from 'apollo-resolvers';
-import { createError, isInstance } from 'apollo-errors';
+import { createResolver } from 'apollo-resolvers'
+import { createError, isInstance } from 'apollo-errors'
 
 const UnknownError = createError('UnknownError', {
-    message: '¡Un error desconocido a ocurrido! Por favor, inténtelo de nuevo más tarde'
+    message: 'An unknown error has occurred! Please try again later'
 });
 
 export const baseResolver = createResolver(

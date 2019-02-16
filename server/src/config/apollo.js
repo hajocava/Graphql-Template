@@ -1,7 +1,10 @@
 import { ApolloServer } from 'apollo-server-express'
+import { PubSub } from 'graphql-subscriptions'
 import { schema } from '../graphql'
 import { processUpload } from '../utils/upload'
-import models from '../models';
+import models from '../models'
+
+export const pubsub = new PubSub()
 
 export const server = new ApolloServer({
     schema,
@@ -16,5 +19,13 @@ export const server = new ApolloServer({
                 processUpload
             }
         }
+    },
+    playground: {
+        endpoint: '/graphql',
+        settings: {
+            'editor.theme': 'light'
+        },
+        subscriptionEndpoint: 'ws://localhost:4000/subscriptions'
     }
+
 })

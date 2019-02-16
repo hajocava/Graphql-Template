@@ -17,9 +17,11 @@
         "babel-preset-env": "^1.7.0",
         "babel-preset-stage-0": "^6.24.1",
         "bcrypt": "^3.0.3",
+        "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "graphql": "^14.0.2",
         "graphql-iso-date": "^3.6.1",
+        "graphql-subscriptions": "^1.0.0",
         "graphql-tools": "^4.0.3",
         "graphql-type-json": "^0.2.1",
         "graphql-upload": "^8.0.4",
@@ -29,7 +31,8 @@
         "mongoose": "^5.4.2",
         "mongoose-unique-validator": "^2.0.2",
         "promises-all": "^1.0.0",
-        "shortid": "^2.2.14"
+        "shortid": "^2.2.14",
+        "subscriptions-transport-ws": "^0.9.15"
     },
     "devDependencies": {
         "nodemon": "^1.18.9"

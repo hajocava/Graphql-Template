@@ -29,3 +29,7 @@ extend type Mutation {
     updateUser(id: ID!, input: UserInput!): Response
     deleteUser(id: ID!): Response
 }
+
+extend type Subscription {
+    newUser: User!
+}
