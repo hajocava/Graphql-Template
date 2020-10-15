@@ -23,7 +23,7 @@ export const server = new ApolloServer({
     playground: {
         endpoint: '/graphql',
         settings: {
-            'editor.theme': 'light'
+            'editor.theme': 'dark'
         },
         subscriptionEndpoint: 'ws://localhost:4000/subscriptions'
     }

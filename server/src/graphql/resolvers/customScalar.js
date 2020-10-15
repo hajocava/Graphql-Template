@@ -1,4 +1,4 @@
-import GraphQLJSON from 'graphql-type-json';
+import { GraphQLJSON } from "graphql-scalars";
 import { GraphQLDate } from 'graphql-iso-date';
 import { GraphQLUpload } from 'graphql-upload'
 
