@@ -17,7 +17,7 @@ server.applyMiddleware({ app })
 const ws = createServer(app)
 
 // Configure params for mongoConnection
-const options = { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false }
+const options = { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true }
 
 mongo.connect(process.env.URI, options).then(() => {
   // If connected, then start server
